@@ -1,0 +1,23 @@
+#-----------------------------------------------------------
+# Vivado v2018.2 (64-bit)
+# SW Build 2258646 on Thu Jun 14 20:03:12 MDT 2018
+# IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
+# Start of session at: Wed Mar 29 09:28:04 2023
+# Process ID: 14608
+# Current directory: D:/Y2S2/EE2026/with_personal_improvements
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent8676 D:\Y2S2\EE2026\with_personal_improvements\with_personal_improvements.xpr
+# Log file: D:/Y2S2/EE2026/with_personal_improvements/vivado.log
+# Journal file: D:/Y2S2/EE2026/with_personal_improvements\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project D:/Y2S2/EE2026/with_personal_improvements/with_personal_improvements.xpr
+INFO: [Project 1-313] Project file moved from 'E:/with_personal_improvements' since last save.
+WARNING: [Project 1-312] File not found as 'D:/Y2S2/EE2026/latest1/MouseAudioDisplay/archive_project_summary.txt'; using path 'E:/latest1/MouseAudioDisplay/archive_project_summary.txt' instead.
+Scanning sources...
+Finished scanning sources
+WARNING: [Project 1-312] File not found as 'D:/Y2S2/EE2026/latest1/MouseAudioDisplay/archive_project_summary.txt'; using path 'E:/latest1/MouseAudioDisplay/archive_project_summary.txt' instead.
+WARNING: [Project 1-312] File not found as 'D:/Y2S2/EE2026/latest1/MouseAudioDisplay/archive_project_summary.txt'; using path 'E:/latest1/MouseAudioDisplay/archive_project_summary.txt' instead.
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'D:/Xilinx/Vivado/2018.2/data/ip'.
+open_project: Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 911.855 ; gain = 123.766

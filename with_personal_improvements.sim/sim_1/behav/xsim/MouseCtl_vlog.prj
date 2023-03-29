@@ -1,0 +1,15 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  \
+"../../../../MouseAudioDisplay.srcs/sources_1/imports/Desktop/Audio_Input.v" \
+"../../../../MouseAudioDisplay.srcs/sources_1/imports/Desktop/Oled_Display.v" \
+"../../../../MouseAudioDisplay.srcs/sources_1/new/Oled_digit_display.v" \
+"../../../../MouseAudioDisplay.srcs/sources_1/new/Oled_digit_display_controller.v" \
+"../../../../MouseAudioDisplay.srcs/sources_1/new/clk6p25m.v" \
+"../../../../MouseAudioDisplay.srcs/sources_1/new/pixelToXY.v" \
+"../../../../MouseAudioDisplay.srcs/sources_1/new/Top_Student.v" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort
