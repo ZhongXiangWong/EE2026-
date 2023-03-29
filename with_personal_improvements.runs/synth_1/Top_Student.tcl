@@ -17,45 +17,46 @@ proc create_report { reportName command } {
     send_msg_id runtcl-5 warning "$msg"
   }
 }
+set_param xicom.use_bs_reader 1
 create_project -in_memory -part xc7a35tcpg236-1
 
 set_param project.singleFileAddWarning.threshold 0
 set_param project.compositeFile.enableAutoGeneration 0
 set_param synth.vivado.isSynthRun true
-set_property webtalk.parent_dir D:/Y2S2/EE2026/with_personal_improvements/with_personal_improvements.cache/wt [current_project]
-set_property parent.project_path D:/Y2S2/EE2026/with_personal_improvements/with_personal_improvements.xpr [current_project]
+set_property webtalk.parent_dir E:/with_personal_improvements/with_personal_improvements.cache/wt [current_project]
+set_property parent.project_path E:/with_personal_improvements/with_personal_improvements.xpr [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
-set_property ip_output_repo d:/Y2S2/EE2026/with_personal_improvements/with_personal_improvements.cache/ip [current_project]
+set_property ip_output_repo e:/with_personal_improvements/with_personal_improvements.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
 read_verilog -library xil_defaultlib {
-  D:/Y2S2/EE2026/with_personal_improvements/with_personal_improvements.srcs/sources_1/imports/Desktop/Audio_Input.v
-  D:/Y2S2/EE2026/with_personal_improvements/with_personal_improvements.srcs/sources_1/imports/Desktop/Oled_Display.v
-  D:/Y2S2/EE2026/with_personal_improvements/with_personal_improvements.srcs/sources_1/new/Oled_digit_display.v
-  D:/Y2S2/EE2026/with_personal_improvements/with_personal_improvements.srcs/sources_1/new/Oled_digit_display_controller.v
-  D:/Y2S2/EE2026/with_personal_improvements/with_personal_improvements.srcs/sources_1/new/clk6p25m.v
-  D:/Y2S2/EE2026/with_personal_improvements/with_personal_improvements.srcs/sources_1/new/pixelToXY.v
-  D:/Y2S2/EE2026/with_personal_improvements/with_personal_improvements.srcs/sources_1/new/Top_Student.v
-  D:/Y2S2/EE2026/with_personal_improvements/with_personal_improvements.srcs/sources_1/new/Valid_number_check.v
-  D:/Y2S2/EE2026/with_personal_improvements/with_personal_improvements.srcs/sources_1/new/Mouse_control.v
-  D:/Y2S2/EE2026/with_personal_improvements/with_personal_improvements.srcs/sources_1/new/audio_out.v
-  D:/Y2S2/EE2026/with_personal_improvements/with_personal_improvements.srcs/sources_1/new/clock_50m.v
-  D:/Y2S2/EE2026/with_personal_improvements/with_personal_improvements.srcs/sources_1/new/clock_20k.v
-  D:/Y2S2/EE2026/with_personal_improvements/with_personal_improvements.srcs/sources_1/new/clock_125.v
-  D:/Y2S2/EE2026/with_personal_improvements/with_personal_improvements.srcs/sources_1/new/clock_250.v
-  D:/Y2S2/EE2026/with_personal_improvements/with_personal_improvements.srcs/sources_1/new/audio_piano.v
-  D:/Y2S2/EE2026/with_personal_improvements/with_personal_improvements.srcs/sources_1/new/clk440.v
-  D:/Y2S2/EE2026/with_personal_improvements/with_personal_improvements.srcs/sources_1/new/clk494.v
-  D:/Y2S2/EE2026/with_personal_improvements/with_personal_improvements.srcs/sources_1/new/clk262.v
-  D:/Y2S2/EE2026/with_personal_improvements/with_personal_improvements.srcs/sources_1/new/clk294.v
-  D:/Y2S2/EE2026/with_personal_improvements/with_personal_improvements.srcs/sources_1/new/clk320.v
-  D:/Y2S2/EE2026/with_personal_improvements/with_personal_improvements.srcs/sources_1/new/clk350.v
-  D:/Y2S2/EE2026/with_personal_improvements/with_personal_improvements.srcs/sources_1/new/clk392.v
+  E:/with_personal_improvements/with_personal_improvements.srcs/sources_1/imports/Desktop/Audio_Input.v
+  E:/with_personal_improvements/with_personal_improvements.srcs/sources_1/imports/Desktop/Oled_Display.v
+  E:/with_personal_improvements/with_personal_improvements.srcs/sources_1/new/Oled_digit_display.v
+  E:/with_personal_improvements/with_personal_improvements.srcs/sources_1/new/Oled_digit_display_controller.v
+  E:/with_personal_improvements/with_personal_improvements.srcs/sources_1/new/clk6p25m.v
+  E:/with_personal_improvements/with_personal_improvements.srcs/sources_1/new/pixelToXY.v
+  E:/with_personal_improvements/with_personal_improvements.srcs/sources_1/new/Top_Student.v
+  E:/with_personal_improvements/with_personal_improvements.srcs/sources_1/new/Valid_number_check.v
+  E:/with_personal_improvements/with_personal_improvements.srcs/sources_1/new/Mouse_control.v
+  E:/with_personal_improvements/with_personal_improvements.srcs/sources_1/new/audio_out.v
+  E:/with_personal_improvements/with_personal_improvements.srcs/sources_1/new/clock_50m.v
+  E:/with_personal_improvements/with_personal_improvements.srcs/sources_1/new/clock_20k.v
+  E:/with_personal_improvements/with_personal_improvements.srcs/sources_1/new/clock_125.v
+  E:/with_personal_improvements/with_personal_improvements.srcs/sources_1/new/clock_250.v
+  E:/with_personal_improvements/with_personal_improvements.srcs/sources_1/new/audio_piano.v
+  E:/with_personal_improvements/with_personal_improvements.srcs/sources_1/new/clk440.v
+  E:/with_personal_improvements/with_personal_improvements.srcs/sources_1/new/clk494.v
+  E:/with_personal_improvements/with_personal_improvements.srcs/sources_1/new/clk262.v
+  E:/with_personal_improvements/with_personal_improvements.srcs/sources_1/new/clk294.v
+  E:/with_personal_improvements/with_personal_improvements.srcs/sources_1/new/clk320.v
+  E:/with_personal_improvements/with_personal_improvements.srcs/sources_1/new/clk350.v
+  E:/with_personal_improvements/with_personal_improvements.srcs/sources_1/new/clk392.v
 }
 read_vhdl -library xil_defaultlib {
-  D:/Y2S2/EE2026/with_personal_improvements/with_personal_improvements.srcs/sources_1/imports/Desktop/Audio_Output.vhd
-  D:/Y2S2/EE2026/with_personal_improvements/with_personal_improvements.srcs/sources_1/imports/Desktop/Mouse_Control.vhd
-  D:/Y2S2/EE2026/with_personal_improvements/with_personal_improvements.srcs/sources_1/imports/Desktop/Ps2Interface.vhd
+  E:/with_personal_improvements/with_personal_improvements.srcs/sources_1/imports/Desktop/Audio_Output.vhd
+  E:/with_personal_improvements/with_personal_improvements.srcs/sources_1/imports/Desktop/Mouse_Control.vhd
+  E:/with_personal_improvements/with_personal_improvements.srcs/sources_1/imports/Desktop/Ps2Interface.vhd
 }
 # Mark all dcp files as not used in implementation to prevent them from being
 # stitched into the results of this synthesis run. Any black boxes in the
@@ -65,8 +66,8 @@ read_vhdl -library xil_defaultlib {
 foreach dcp [get_files -quiet -all -filter file_type=="Design\ Checkpoint"] {
   set_property used_in_implementation false $dcp
 }
-read_xdc D:/Y2S2/EE2026/with_personal_improvements/with_personal_improvements.srcs/constrs_1/new/Basys3_Master.xdc
-set_property used_in_implementation false [get_files D:/Y2S2/EE2026/with_personal_improvements/with_personal_improvements.srcs/constrs_1/new/Basys3_Master.xdc]
+read_xdc E:/with_personal_improvements/with_personal_improvements.srcs/constrs_1/new/Basys3_Master.xdc
+set_property used_in_implementation false [get_files E:/with_personal_improvements/with_personal_improvements.srcs/constrs_1/new/Basys3_Master.xdc]
 
 set_param ips.enableIPCacheLiteLoad 0
 close [open __synthesis_is_running__ w]

@@ -1,4 +1,4 @@
-set_property SRC_FILE_INFO {cfile:D:/Y2S2/EE2026/with_personal_improvements/with_personal_improvements.srcs/constrs_1/new/Basys3_Master.xdc rfile:../../../with_personal_improvements.srcs/constrs_1/new/Basys3_Master.xdc id:1} [current_design]
+set_property SRC_FILE_INFO {cfile:E:/with_personal_improvements/with_personal_improvements.srcs/constrs_1/new/Basys3_Master.xdc rfile:../../../with_personal_improvements.srcs/constrs_1/new/Basys3_Master.xdc id:1} [current_design]
 set_property src_info {type:XDC file:1 line:7 export:INPUT save:INPUT read:READ} [current_design]
 set_property PACKAGE_PIN W5 [get_ports clock]
 set_property src_info {type:XDC file:1 line:12 export:INPUT save:INPUT read:READ} [current_design]

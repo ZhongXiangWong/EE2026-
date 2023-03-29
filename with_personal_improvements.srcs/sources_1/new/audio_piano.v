@@ -19,21 +19,26 @@
 // 
 //////////////////////////////////////////////////////////////////////////////////
 
-//Feature #1: Piano notes feature
+//Feature #1: Piano notes feature 
 //SW15-A, SW14-B, SW13-C, SW12-D, SW11-E, SW10-F, SW9-G
 //
 //Feature #2: Sound Recording and playback feature
-//SW8-Sound Recording, btnL-Start Recording, btnC-Delete Recording
+//SW8-Sound Recording, btnL-Start Recording, btnC-Delete Recording 
 //Mode #1: Only LED         (btnL)
 //Mode #2: LED and Sound    (btnL + SW8)
-//Mode #3: Teaching Song    (btnR)
+//
+//Possible Additional Improvements:
+//1. 'Teach' a recorded song: Based on the recording, prompt the next switch to on [Done]
+
+//Updates:
+//1. assign LED updated such that it will turn on upon key press.
 
 module audio_piano(
     input clock,                                
     input [15:0] sw,                            //The note keys
     input btnC,                                 //This button clears the recording
     input btnL,                                 //This button plays the recording
-    input btnR,                                 //Teach based on led press key
+    input btnR,                                 //Based on led press key
     output [11:0] piano_audio_signal,           //Output the note sound
     output [15:9] led                           //Display led on corresponding note (only for recording)
     );
@@ -53,14 +58,6 @@ module audio_piano(
     wire [11:0] audio_note_F; //350Hz
     wire [11:0] audio_note_G; //392Hz
     
-    reg [6:0] key_note_A = 7'b1000000;
-    reg [6:0] key_note_B = 7'b0100000;
-    reg [6:0] key_note_C = 7'b0010000;
-    reg [6:0] key_note_D = 7'b0001000;
-    reg [6:0] key_note_E = 7'b0000100;
-    reg [6:0] key_note_F = 7'b0000010;
-    reg [6:0] key_note_G = 7'b0000001;
-    
     //Audio for the recording
     wire [11:0] audio_recording;
     
@@ -74,16 +71,15 @@ module audio_piano(
    clk392 clk_G(clock, audio_note_G);
    
    //Assigning switches to each piano note 
-    assign piano_audio_signal = (sw[15:9] == key_note_A[6:0])  ? ((audio_note_A == 0)    ? audio_volume[11:0] : 0) :
-                                (sw[15:9] == key_note_B[6:0])  ? ((audio_note_B == 0)    ? audio_volume[11:0] : 0) :
-                                (sw[15:9] == key_note_C[6:0])  ? ((audio_note_C == 0)    ? audio_volume[11:0] : 0) :
-                                (sw[15:9] == key_note_D[6:0])  ? ((audio_note_D == 0)    ? audio_volume[11:0] : 0) :
-                                (sw[15:9] == key_note_E[6:0])  ? ((audio_note_E == 0)    ? audio_volume[11:0] : 0) :
-                                (sw[15:9] == key_note_F[6:0])  ? ((audio_note_F == 0)    ? audio_volume[11:0] : 0) :
-                                (sw[15:9] == key_note_G[6:0])  ? ((audio_note_G == 0)    ? audio_volume[11:0] : 0) :
-                                (sw[8] && sw[15:9] == 0)       ? ((audio_recording == 0) ? audio_volume[11:0] : 0) :
-                                                                 11'b0;
-    
+   assign piano_audio_signal = (sw[15]) ? ((audio_note_A == 0)    ? audio_volume[11:0] : 0) :
+                               (sw[14]) ? ((audio_note_B == 0)    ? audio_volume[11:0] : 0) :
+                               (sw[13]) ? ((audio_note_C == 0)    ? audio_volume[11:0] : 0) :
+                               (sw[12]) ? ((audio_note_D == 0)    ? audio_volume[11:0] : 0) :
+                               (sw[11]) ? ((audio_note_E == 0)    ? audio_volume[11:0] : 0) :
+                               (sw[10]) ? ((audio_note_F == 0)    ? audio_volume[11:0] : 0) :
+                               (sw[9])  ? ((audio_note_G == 0)    ? audio_volume[11:0] : 0) :
+                               (sw[8])  ? ((audio_recording == 0) ? audio_volume[11:0] : 0) : 
+                               11'b0;
            
                                 
     
@@ -91,14 +87,14 @@ module audio_piano(
     
     //Encoder: Encoded notes so that bitsize of sound_recording will not be absurdly long.
     wire [2:0] encoded_note;
-    assign encoded_note [2:0] = (sw[15:9] == key_note_A[6:0])  ? 3'b001 :
-                                (sw[15:9] == key_note_B[6:0])  ? 3'b010 :
-                                (sw[15:9] == key_note_C[6:0])  ? 3'b011 :
-                                (sw[15:9] == key_note_D[6:0])  ? 3'b100 :
-                                (sw[15:9] == key_note_E[6:0])  ? 3'b101 :
-                                (sw[15:9] == key_note_F[6:0])  ? 3'b110 :
-                                (sw[15:9] == key_note_G[6:0])  ? 3'b111 :
-                                                                 3'b000;
+    assign encoded_note [2:0] = (sw[15]) ? 3'b001 :
+                                (sw[14]) ? 3'b010 :
+                                (sw[13]) ? 3'b011 :
+                                (sw[12]) ? 3'b100 :
+                                (sw[11]) ? 3'b101 :
+                                (sw[10]) ? 3'b110 :
+                                (sw[9])  ? 3'b111 :
+                                3'b0;
 
    //Decoder sound: Based on note_to_play, assign appropriate note to audio_recording. 
    wire [2:0] note_to_play;
@@ -109,22 +105,18 @@ module audio_piano(
                             (note_to_play == 3'b101) ? ((audio_note_E == 0) ? audio_volume[11:0] : 0) :
                             (note_to_play == 3'b110) ? ((audio_note_F == 0) ? audio_volume[11:0] : 0) :
                             (note_to_play == 3'b111) ? ((audio_note_G == 0) ? audio_volume[11:0] : 0) :
-                                                       11'b0;
+                            11'b0;
                             
-
-   reg play_recording = 0; //To toggle play recording mode.
-   reg start_practice = 0; //To toggle practice mode.
-                                                           
    //Decoder led: Based on note_to_play, assign appropriate note to audio_recording.
    //Added feature: Led will light up whenever corresponding switch is on
-   assign led [15:9] = (note_to_play [2:0] == 3'b001 || (sw[15] & ~start_practice & ~play_recording)) ? 7'b1000000 :
-                       (note_to_play [2:0] == 3'b010 || (sw[14] & ~start_practice & ~play_recording)) ? 7'b0100000 :
-                       (note_to_play [2:0] == 3'b011 || (sw[13] & ~start_practice & ~play_recording)) ? 7'b0010000 :
-                       (note_to_play [2:0] == 3'b100 || (sw[12] & ~start_practice & ~play_recording)) ? 7'b0001000 :
-                       (note_to_play [2:0] == 3'b101 || (sw[11] & ~start_practice & ~play_recording)) ? 7'b0000100 :
-                       (note_to_play [2:0] == 3'b110 || (sw[10] & ~start_practice & ~play_recording)) ? 7'b0000010 :
-                       (note_to_play [2:0] == 3'b111 || (sw[9] & ~start_practice & ~play_recording))  ? 7'b0000001 :
-                                                                                                        7'b0000000;
+   assign led [15:9] = (note_to_play [2:0] == 3'b001 || sw[15]) ? 7'b1000000 :
+                       (note_to_play [2:0] == 3'b010 || sw[14]) ? 7'b0100000 :
+                       (note_to_play [2:0] == 3'b011 || sw[13]) ? 7'b0010000 :
+                       (note_to_play [2:0] == 3'b100 || sw[12]) ? 7'b0001000 :
+                       (note_to_play [2:0] == 3'b101 || sw[11]) ? 7'b0000100 :
+                       (note_to_play [2:0] == 3'b110 || sw[10]) ? 7'b0000010 :
+                       (note_to_play [2:0] == 3'b111 || sw[9]) ? 7'b0000001 :
+                       7'b0000000;
     
     
     //This determines whether a note needs to be recorded.
@@ -143,6 +135,9 @@ module audio_piano(
     reg [6:0] slow_clock = 7'b0000000;
     reg [6:0] note_count = 7'b0000000;   
     
+    //To turn on the recording.
+    reg play_recording = 0;
+    reg start_practice = 0;
     
     always @ (posedge clock) begin
         if (sw[1]) begin
