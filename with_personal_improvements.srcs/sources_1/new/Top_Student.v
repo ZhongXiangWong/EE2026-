@@ -50,6 +50,7 @@ module Top_Student (
         JB[6],
         JB[7]
     );
+    
     // State
     wire [6:0] X, Y;
     wire [6:0] oled_seg, mouse_click_seg;
@@ -57,6 +58,7 @@ module Top_Student (
     
     // Pixel to coordinate conversion
     pixelToXY convert(oled_pixel_index, X, Y);
+    
     // Display for OLED
     // Mouse::pointer
     Mouse_control pointer(clock, ps2_clk, ps2_data, X, Y, mouse_pixel_data, mouse_click_seg);
@@ -80,7 +82,8 @@ module Top_Student (
    
     //Module for Individual Task: btnC plays sound, SW[1] affects tone and pitch 
     audio_out audio_out (clock, btnC, sw[0], is_valid_number, oled_seg [6:0], default_audio_signal[11:0]);
-    //Module for Personal Improvement: Piano keys {SW[15:9]}, ability to record {automatically} and playback {btnL}.
+    //Module for Personal Improvement: Piano keys {SW[15:9]}, ability to record {automatically} 
+    //and playback {btnL: LED, SW8: Sound}.
     audio_piano audio_piano (clock, sw[15:0], btnC, btnL, btnR, piano_audio_signal[11:0], piano_led[15:9]);
     
     //Audio module: Just need to pass the audio data into this

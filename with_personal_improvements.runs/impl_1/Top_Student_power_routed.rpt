@@ -1,7 +1,7 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2018.2 (win64) Build 2258646 Thu Jun 14 20:03:12 MDT 2018
-| Date             : Sun Mar 26 15:49:41 2023
+| Date             : Wed Mar 29 09:52:32 2023
 | Host             : Xiang_Yoga_9i running 64-bit major release  (build 9200)
 | Command          : report_power -file Top_Student_power_routed.rpt -pb Top_Student_power_summary_routed.pb -rpx Top_Student_power_routed.rpx
 | Design           : Top_Student
@@ -30,10 +30,10 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 0.113        |
+| Total On-Chip Power (W)  | 0.111        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 0.041        |
+| Dynamic (W)              | 0.039        |
 | Device Static (W)        | 0.072        |
 | Effective TJA (C/W)      | 5.0          |
 | Max Ambient (C)          | 84.4         |
@@ -52,18 +52,18 @@ Table of Contents
 +----------------+-----------+----------+-----------+-----------------+
 | On-Chip        | Power (W) | Used     | Available | Utilization (%) |
 +----------------+-----------+----------+-----------+-----------------+
-| Clocks         |     0.005 |        3 |       --- |             --- |
+| Clocks         |     0.006 |        3 |       --- |             --- |
 | Slice Logic    |     0.005 |     2585 |       --- |             --- |
-|   LUT as Logic |     0.004 |     1206 |     20800 |            5.80 |
+|   LUT as Logic |     0.004 |     1186 |     20800 |            5.70 |
 |   CARRY4       |    <0.001 |      187 |      8150 |            2.29 |
 |   Register     |    <0.001 |      910 |     41600 |            2.19 |
-|   F7/F8 Muxes  |    <0.001 |       10 |     32600 |            0.03 |
+|   F7/F8 Muxes  |    <0.001 |       19 |     32600 |            0.06 |
 |   BUFG         |    <0.001 |        1 |        32 |            3.13 |
 |   Others       |     0.000 |       47 |       --- |             --- |
-| Signals        |     0.005 |     1896 |       --- |             --- |
-| I/O            |     0.025 |       62 |       106 |           58.49 |
+| Signals        |     0.005 |     1878 |       --- |             --- |
+| I/O            |     0.024 |       62 |       106 |           58.49 |
 | Static Power   |     0.072 |          |           |                 |
-| Total          |     0.113 |          |           |                 |
+| Total          |     0.111 |          |           |                 |
 +----------------+-----------+----------+-----------+-----------------+
 
 
@@ -73,8 +73,8 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) |
 +-----------+-------------+-----------+-------------+------------+
-| Vccint    |       1.000 |     0.025 |       0.016 |      0.010 |
-| Vccaux    |       1.800 |     0.014 |       0.001 |      0.013 |
+| Vccint    |       1.000 |     0.025 |       0.015 |      0.010 |
+| Vccaux    |       1.800 |     0.013 |       0.001 |      0.013 |
 | Vcco33    |       3.300 |     0.008 |       0.007 |      0.001 |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |
 | Vcco18    |       1.800 |     0.000 |       0.000 |      0.000 |
@@ -142,7 +142,7 @@ Table of Contents
 +-------------------------+-----------+
 | Name                    | Power (W) |
 +-------------------------+-----------+
-| Top_Student             |     0.041 |
+| Top_Student             |     0.039 |
 |   audio_out             |     0.001 |
 |     s125                |    <0.001 |
 |     s250                |    <0.001 |
@@ -155,12 +155,12 @@ Table of Contents
 |     clk_F               |    <0.001 |
 |     clk_G               |    <0.001 |
 |   check_valid_number    |    <0.001 |
-|   convert               |     0.002 |
+|   convert               |     0.001 |
 |   myAudioOutput         |    <0.001 |
 |   oled                  |     0.002 |
 |   oled_clk              |    <0.001 |
 |   pointer               |     0.004 |
-|     mc                  |     0.003 |
+|     mc                  |     0.004 |
 |       Inst_Ps2Interface |    <0.001 |
 |   ps2_clk_IOBUF_inst    |     0.000 |
 |   ps2_data_IOBUF_inst   |     0.000 |

@@ -21,3 +21,9 @@ INFO: [IP_Flow 19-234] Refreshing IP repositories
 INFO: [IP_Flow 19-1704] No user IP repositories specified
 INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'D:/Xilinx/Vivado/2018.2/data/ip'.
 open_project: Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 911.855 ; gain = 123.766
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 8
+[Wed Mar 29 09:50:07 2023] Launched synth_1...
+Run output will be captured here: D:/Y2S2/EE2026/with_personal_improvements/with_personal_improvements.runs/synth_1/runme.log
+[Wed Mar 29 09:50:07 2023] Launched impl_1...
+Run output will be captured here: D:/Y2S2/EE2026/with_personal_improvements/with_personal_improvements.runs/impl_1/runme.log
